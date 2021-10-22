@@ -1,0 +1,27 @@
+# 准备环境
+!pip install tensorboardX
+
+# 下载代码
+!git clone https://github.com/Jf-Chen/FRN-main.git
+%cd /content/FRN-main/data
+# 设置权限
+!chmod 755 /content/FRN-main/data/download_mini_ImageNet.sh
+# 下载数据，下载位置写在config.yml中
+!/content/FRN-main/data/download_mini_ImageNet.sh
+
+!pwd
+%cd /content/FRN-main/data
+!python /content/FRN-main/data/init_mini-ImageNet_my.py
+
+# pretrain部分
+# %cd /content/FRN-main/experiments/mini-ImageNet/FRN/ResNet-12_pretrain
+# !python  my_train.py --opt sgd --lr 1e-1 --gamma 1e-1 --epoch 350 --decay_epoch 200 300 --batch_size 128 --val_epoch 25 --weight_decay 5e-4 --nesterov --train_transform_type 0 --resnet --train_shot 1 --test_shot 1 5 --pre --gpu 0
+
+# 下载已经训练好的pre-train model
+%cd /content/FRN-main/trained_model_weights
+!chmod 755 /content/FRN-main/trained_model_weights/download_weights.sh
+!/content/FRN-main/trained_model_weights/download_weights.sh
+
+
+!pwd
+%cd /content/FRN-main
