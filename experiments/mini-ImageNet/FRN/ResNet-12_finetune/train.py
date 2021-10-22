@@ -30,8 +30,8 @@ model = FRN(way=train_way,
             shots=[args.train_shot, args.train_query_shot],
             resnet=args.resnet)
 
-pretrained_model_path = '../ResNet-12_pretrain/model_ResNet-12.pth'
-#pretrained_model_path = '../../../../trained_model_weights/mini-ImageNet/FRN/ResNet-12_pretrain/model.pth'
+#pretrained_model_path = '../ResNet-12_pretrain/model_ResNet-12.pth'
+pretrained_model_path = '../../../../trained_model_weights/mini-ImageNet/FRN/ResNet-12_pretrain/model.pth'
 
 model.load_state_dict(torch.load(pretrained_model_path,map_location=util.get_device_map(args.gpu)),strict=False)
 
