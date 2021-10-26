@@ -173,7 +173,7 @@ class Train_Manager:
 
         logger.info("start training!")
 
-        for e in tqdm(range(total_epoch)):
+        for e in tqdm(range(total_epoch),position=0, leave=True):
 
             iter_counter,train_acc = train_func(model=model,
                                                 optimizer=optimizer,

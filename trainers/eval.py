@@ -30,7 +30,7 @@ def meta_test(data_path,model,way,shot,pre,transform_type,query_shot=16,trial=10
 
     acc_list = []
 
-    for i, (inp,_) in tqdm(enumerate(eval_loader)):
+    for i, (inp,_) in tqdm(enumerate(eval_loader),position=0, leave=True):
 
         inp = inp.cuda()
         max_index = model.meta_test(inp,way=way,shot=shot,query_shot=query_shot)
